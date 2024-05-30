@@ -25,10 +25,8 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", function (uniqueSocket) {
-  console.log("clientEvent recieved 1");
-
+  console.log("New Client connected");
   uniqueSocket.on("clientEvent", () => {
-    console.log("clientEvent recieved 2");
     uniqueSocket.emit("paapdi");
   });
 

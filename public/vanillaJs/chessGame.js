@@ -38,11 +38,9 @@ const renderBoard = () => {
           }
         });
 
-        pieceElement.addEventListener("dragend", (e) => {
-          console.log("Working 1", draggedPiece, sourceSquare);
+        pieceElement.addEventListener("dragend", () => {
           draggedPiece = null;
           sourceSquare = null;
-          //   e.dataTransfer.setData("text/plain", "");
         });
 
         squareElement.appendChild(pieceElement);
@@ -52,7 +50,6 @@ const renderBoard = () => {
         e.preventDefault();
       });
       squareElement.addEventListener("drop", (e) => {
-        console.log("Working 2", draggedPiece, sourceSquare);
         if (draggedPiece) {
           const targetSource = {
             row: parseInt(squareElement.dataset.row),
