@@ -72,4 +72,4 @@ io.on("connection", function (uniqueSocket) {
   });
 });
 
-server.listen(process.env.PORT);
+server.listen(process.env.PORT || 4000);
