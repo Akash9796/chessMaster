@@ -3,9 +3,14 @@ const socket = require("socket.io");
 const http = require("http");
 const path = require("path");
 const { Chess } = require("chess.js");
+const dotenv = require("dotenv");
 
 const app = express();
 const server = http.createServer(app);
+dotenv.config({
+  path: "./data/config.env",
+});
+
 const io = socket(server);
 const chess = new Chess();
 
@@ -67,4 +72,4 @@ io.on("connection", function (uniqueSocket) {
   });
 });
 
-server.listen(3000);
+server.listen(process.env.PORT);
